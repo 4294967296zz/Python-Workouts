@@ -12,8 +12,6 @@ Created on Sat Feb 18 16:58:40 2023
         d) X에서 1을 뺀다.
     정수 X가 주어졌을 때, 위의 a, b, c, d 연산 4개를 적절히 사용해서 1을 만들려고 한다.
     연산을 사용하는 횟수의 최솟값을 출력하시오.
-    
-    
 """
 def CLS() :
     print( "\014" ) 
@@ -72,16 +70,6 @@ def calc02( f ) :
     return f
 
 
-def divider01( X = 84 ) :
-    global count
-    count = 0
-    f = X
-    
-    while( f > 1 ) :
-        f = calc02( f )
-    print( divider01.__name__ + "() :" , count )
-
-
 # other way of calc01
 def calc02A01( f ) :
     r = [ 2, 3, 5 ]
@@ -98,7 +86,17 @@ def calc02A01( f ) :
     return f
 
 
-def divider02( X = 46 ) :
+def divider01( X = 84 ) :
+    global count
+    count = 0
+    f = X
+    
+    while( f > 1 ) :
+        f = calc02( f )
+    print( divider01.__name__ + "() :" , count )
+
+
+def divider02( X = 84 ) :
     count = 0
     f = X
     
@@ -106,70 +104,11 @@ def divider02( X = 46 ) :
         count += 1
         f = calc02A01( f )
     print( divider02.__name__ + "() :" , count )
-    
-    
-# new way
-def calc03( f ) :
-    global count
-    r = [ 5, 3, 2 ]
-    
-    for k in range( len( r ) ) :
-        x = f % r[ k ]
-        
-        if x == 0 :
-            f = ( f // r[ k ] )
-            return f
-        elif x == 1 :
-            f -= 1
-            f = ( f // r[ k ] )
-            count += 1
-            return f
-
-
-def calc03A01( f ) :
-    global count
-    r = [ 5, 3, 2 ]
-    
-    for k in range( len( r ) ) :
-        if f % r[ k ] < 2 :
-            x = f % r[ k ]
-            f = f - x
-            count += x
-            f = ( f // r[ k ] )
-            return f
-
-
-def calc03A02( f ) :
-    global count
-    r = [ 2, 3, 5 ]
-    k = 0
-    
-    while( len( r ) ) :
-        k = r.pop()
-        if f % k < 2 :
-            x = f % k
-            f = f - x
-            count += x
-            f = ( f // k )
-            return f
-        
-
-def divider03( X = 46 ) :
-    global count
-    count = 0
-    f = X
-    
-    while( f > 1 ) :
-        count += 1
-        f = calc03A02( f )
-    print( divider03.__name__ + "() :" , count )
 
 
 def main() :
     CLS()
     divider01()
-    divider02()
-    divider03()
     
 
 if( __name__ == "__main__" ) :
