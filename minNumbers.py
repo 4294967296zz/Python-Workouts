@@ -35,13 +35,15 @@ def solution01( A, B ) :
         bb = B[ i ]
         answer += k * bb
         
-    print( answer )
+    return answer
+    
+def solution01_test( A = [1, 4, 2], B = [5, 4, 4] ) :
+    print( solution01.__name__ + "() : \n", solution01( A, B ) )
     
     
 def main() :
     CLS()
-    A, B = [1, 4, 2], [5, 4, 4]
-    solution01( A, B )
+    solution01_test()
     
     
 if( __name__ == "__main__" ) :
