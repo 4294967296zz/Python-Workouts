@@ -48,11 +48,24 @@ def solution01( participant, completion ):
 def solution01_test( participant = ["mislav", "stanko", "mislav", "ana"], completion = ["stanko", "ana", "mislav"] ) :
     print( solution01.__name__+"() : \n", solution01( participant, completion ) )
 
+    # used collections.Counter
+def solution02( participant, completion ):
+    import collections
+    answer = collections.Counter( participant ) - collections.Counter( completion )
+    
+    return list( answer.keys() ) [ 0 ]
+    
+
+def solution02_test( participant = ["mislav", "stanko", "mislav", "ana"], completion = ["stanko", "ana", "mislav"] ) :
+    print( solution02.__name__+"() : \n", solution02( participant, completion ) )
+
 
 def main() :
+    
     CLS()
     solution_test()
     solution01_test()
+    solution02_test()
 
 if __name__ == "__main__" :
     main()
